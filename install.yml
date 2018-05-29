@@ -51,6 +51,7 @@
       name: nodejs
   - name: Create GIT repo
     command: "git init --bare {{ ansistrano_deploy_to }}.git"
+    when: private_repo
     args:
       creates: "{{ ansistrano_deploy_to }}.git"
     become: true
