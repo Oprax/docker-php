@@ -3,7 +3,7 @@
 # https://hub.docker.com/r/library/php
 image: ansible/ansible:ubuntu1604py3
 
-service:
+services:
  - arnobirchler/debian:ssh as debian_ssh
 
 stages:
