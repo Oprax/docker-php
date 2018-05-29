@@ -1,0 +1,25 @@
+sudoer: user_with_sudo
+php_version: 7.2
+nodejs_version: 8
+npm_globals: []
+redirect_domain: new.example.org
+domain: new.example.org
+# Ansistrano
+ansistrano_deploy_to: "/home/{{ user }}/{{ domain }}"
+ansistrano_deploy_via: git
+ansistrano_git_repo: "{{ ansistrano_deploy_to }}.git"
+ansistrano_keep_realeases: 3
+ansistrano_shared_paths: ["public/uploads", "storage"]
+ansistrano_shared_files: [".env"]
+ansistrano_before_symlink_shared_tasks_file: "{{ playbook_dir }}/tasks/before_symlink.yml"
+ansistrano_after_symlink_tasks_file: "{{ playbook_dir }}/tasks/after_symlink.yml"
+ansistrano_allow_anonymous_stats: false
+# Mysql
+mysql_db: choose_wisely
+mysql_user: choose_wisely
+mysql_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          666
+mysql_root_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          666

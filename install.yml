@@ -1,0 +1,57 @@
+---
+- name: Server install
+  hosts: web
+  remote_user: root
+  tasks:
+  - include_vars:
+      file: vars.yml
+  - name: "USER | Create {{ user }}"
+    user:
+      name: "{{ user }}"
+      groups:
+      - www-data
+      shell: /bin/bash
+  - name: "USER | SSH key ({{ user }})"
+    authorized_key:
+      user: "{{ user }}"
+      key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+      state: present
+  - name: "USER | Create {{ sudoer }}"
+    user:
+      name: "{{ sudoer }}"
+      groups:
+      - sudo
+      shell: /bin/bash
+  - name: "USER | SSH key ({{ sudoer }})"
+    authorized_key:
+      user: "{{ sudoer }}"
+      key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+      state: present
+  - name: APT | Update
+    apt:
+      upgrade: dist
+      update_cache: yes
+  - name: ROLES | secure
+    include_role:
+      name: secure
+  - name: ROLES | Tools
+    include_role:
+      name: tools
+  - name: ROLES | MySQL
+    include_role:
+      name: mysql
+  - name: ROLES | PHP
+    include_role:
+      name: php
+  - name: ROLES | Nginx
+    include_role:
+      name: nginx
+  - name: ROLES | NodeJS
+    include_role:
+      name: nodejs
+  - name: Create GIT repo
+    command: "git init --bare {{ ansistrano_deploy_to }}.git"
+    args:
+      creates: "{{ ansistrano_deploy_to }}.git"
+    become: true
+    become_user: "{{ user }}"
