@@ -1,5 +1,5 @@
 [web]
-new.example.org
+debian_ssh
 
 [web:vars]
 user=project_user

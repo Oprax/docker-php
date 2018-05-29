@@ -3,14 +3,21 @@
 # https://hub.docker.com/r/library/php
 image: ansible/ansible:ubuntu1604py3
 
+service:
+ - arnobirchler/debian:ssh as debian_ssh
+
 stages:
   - build
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
 
-composer:
+ansible:
   stage: build
-  script:
+  before_script:
     - cp vars.test.yml vars.yml
     - cp hosts.test hosts
+    - echo "password" > .vault_pass
+  script:
+    - ansible-playbook -i hosts install.yml --vault-password-file .vault_pass
+
 

@@ -7,6 +7,13 @@ You can test this configuration with a free server (only for 2 hours) using [dpl
 
 # 1. Setup
 
+First copy hosts & vars.yml from test version
+
+```bash
+    cp vars.test.yml vars.yml
+    cp hosts.test hosts
+``` 
+
 On `hosts` file put server's address and check information (like username) in `vars.yml`.
 Password is encrypted using `ansible-vault`.
 

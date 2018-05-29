@@ -1,25 +1,34 @@
-sudoer: user_with_sudo
+sudoer: admin
 php_version: 7.2
 nodejs_version: 8
 npm_globals: []
 redirect_domain: new.example.org
 domain: new.example.org
+private_repo: false
 # Ansistrano
 ansistrano_deploy_to: "/home/{{ user }}/{{ domain }}"
 ansistrano_deploy_via: git
-ansistrano_git_repo: "{{ ansistrano_deploy_to }}.git"
-ansistrano_keep_realeases: 3
-ansistrano_shared_paths: ["public/uploads", "storage"]
-ansistrano_shared_files: [".env"]
-ansistrano_before_symlink_shared_tasks_file: "{{ playbook_dir }}/tasks/before_symlink.yml"
-ansistrano_after_symlink_tasks_file: "{{ playbook_dir }}/tasks/after_symlink.yml"
-ansistrano_allow_anonymous_stats: false
+#ansistrano_git_repo: "{{ ansistrano_deploy_to }}.git"
+#ansistrano_keep_realeases: 3
+#ansistrano_shared_paths: ["public/uploads", "storage"]
+#ansistrano_shared_files: [".env"]
+#ansistrano_before_symlink_shared_tasks_file: "{{ playbook_dir }}/tasks/before_symlink.yml"
+#ansistrano_after_symlink_tasks_file: "{{ playbook_dir }}/tasks/after_symlink.yml"
+#ansistrano_allow_anonymous_stats: false
 # Mysql
-mysql_db: choose_wisely
-mysql_user: choose_wisely
+mysql_db: test_db
+mysql_user: test
 mysql_password: !vault |
-          $ANSIBLE_VAULT;1.1;AES256
-          666
+                $ANSIBLE_VAULT;1.1;AES256
+                32616661353166363135343336353436356636666263386463643863333236363938363861326534
+                3835363034346539626462313535623936343265623733370a626264616430616230626236346663
+                34646135643362323863323339666161363564613438643333613534346163663935613561313835
+                6161386537346163340a663738653236393162353565643035373532353738363534386161363038
+                6233
 mysql_root_password: !vault |
-          $ANSIBLE_VAULT;1.1;AES256
-          666
+                 $ANSIBLE_VAULT;1.1;AES256
+                 32616661353166363135343336353436356636666263386463643863333236363938363861326534
+                 3835363034346539626462313535623936343265623733370a626264616430616230626236346663
+                 34646135643362323863323339666161363564613438643333613534346163663935613561313835
+                 6161386537346163340a663738653236393162353565643035373532353738363534386161363038
+                 6233
