@@ -13,7 +13,7 @@
 - name: FIREWALL | Open SSH
   ufw:
     rule: limit
-    port: ssh
+    port: 22
 - name: FIREWALL | Open HTTP/S
   ufw:
     rule: allow
