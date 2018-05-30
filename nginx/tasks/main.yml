@@ -23,11 +23,11 @@
   service:
     name: nginx
     state: restarted
-- import_tasks: letsencrypt.yml
-- name: "Nginx | Vhost {{ domain }}"
-  template:
-    src: vhost.j2
-    dest: "/etc/nginx/sites-enabled/{{ domain }}"
+#- import_tasks: letsencrypt.yml
+#- name: "Nginx | Vhost {{ domain }}"
+#  template:
+#    src: vhost.j2
+#    dest: "/etc/nginx/sites-enabled/{{ domain }}"
 - name: "Nginx | Restart"
   service:
     name: nginx
