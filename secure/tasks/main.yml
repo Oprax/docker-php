@@ -3,6 +3,7 @@
   apt:
     name: ufw
     state: present
+  notify: RemoveIPv6
 - name: FIREWALL | Policy
   ufw:
     direction: "{{ item.direction }}"

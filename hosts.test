@@ -3,6 +3,7 @@ arnobirchler-debian
 
 [web:vars]
 user=project_user
+debug=true
 
 [all:vars]
 ansible_connection=ssh
