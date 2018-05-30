@@ -5,7 +5,7 @@ image: oprax/debian:ansible
 
 # https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#accessing-the-services
 services:
- - arnobirchler/debian:ssh
+ - ansible/ansible:ubuntu1604py3
 
 stages:
   - build
