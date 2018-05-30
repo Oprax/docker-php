@@ -1,5 +1,5 @@
 [web]
-debian_ssh
+arnobirchler-debian
 
 [web:vars]
 user=project_user
