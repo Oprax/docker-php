@@ -1,5 +1,0 @@
-[web]
-new.example.org
-
-[web:vars]
-user=project_user
