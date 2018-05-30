@@ -3,3 +3,8 @@ arnobirchler-debian
 
 [web:vars]
 user=project_user
+
+[all:vars]
+ansible_connection=ssh
+ansible_ssh_user=root
+ansible_ssh_pass=root
