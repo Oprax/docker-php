@@ -1,10 +1,5 @@
 ---
-- name: RemoveIPv6
-    lineinfile:
-      path: /etc/default/ufw
-      regexp: '^IPV6='
-      line: 'IPV6=no'
-    service:
-      name: ufw
-      state: restarted
-  when: debug
+-
+  lineinfile: "path=/etc/default/ufw regexp='^IPV6=' line='IPV6=no'"
+  name: RemoveIPv6
+  service: "name=ufw state=restarted"
