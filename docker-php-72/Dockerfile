@@ -10,6 +10,7 @@ RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc
 RUN apt-get update
 RUN apt-get install -y \
     php7.2-cli \
+    php7.2-xdebug \
     php7.2-mysql \
     php7.2-sqlite \
     php7.2-mbstring \
