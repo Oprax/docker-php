@@ -1,9 +1,6 @@
-FROM debian:stable
+FROM oprax/debian:stable
 
 LABEL maintainer="oprax@me.com"
-
-RUN apt-get update
-RUN apt-get install -y apt-utils wget gnupg lsb-release apt-transport-https
 
 RUN wget -qO - https://packages.sury.org/php/apt.gpg | apt-key add -
 RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
