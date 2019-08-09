@@ -8,7 +8,7 @@ RUN apt-get update
 RUN apt-get install -y \
     php7.3-cli \
     php7.3-curl \
-    php7.0-xdebug \
+    php7.3-xdebug \
     php7.3-mysql \
     php7.3-sqlite \
     php7.3-mbstring \
