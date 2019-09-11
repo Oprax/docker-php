@@ -12,6 +12,7 @@ RUN apt-get install -y \
     php7.3-mysql \
     php7.3-sqlite \
     php7.3-mbstring \
+    php7.3-imagick \
     php7.3-gd \
     php7.3-xml \
     php7.3-zip \
