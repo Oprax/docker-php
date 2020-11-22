@@ -1,0 +1,66 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: '7.1'
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: registry.oprax.fr/php
+    registry: registry.oprax.fr
+    tags:
+      - '7.1'
+    dockerfile: docker-php-71/Dockerfile
+- name: '7.2'
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: registry.oprax.fr/php
+    registry: registry.oprax.fr
+    tags:
+      - '7.2'
+    dockerfile: docker-php-72/Dockerfile
+- name: '7.3'
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: registry.oprax.fr/php
+    registry: registry.oprax.fr
+    tags:
+      - '7.3'
+    dockerfile: docker-php-73/Dockerfile
+- name: '7.4'
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: registry.oprax.fr/php
+    registry: registry.oprax.fr
+    tags:
+      - '7.4'
+      - '7'
+    dockerfile: docker-php-74/Dockerfile
+- name: chromium
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: registry.oprax.fr/php
+    registry: registry.oprax.fr
+    tags:
+      - chromium
+    dockerfile: docker-php-chromium/Dockerfile

@@ -1,11 +1,11 @@
-FROM oprax/debian:stable
+FROM registry.oprax.fr/debian:stable
 
 LABEL maintainer="oprax@me.com"
 
 RUN wget -qO - https://packages.sury.org/php/apt.gpg | apt-key add -
 RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
-RUN apt-get update
-RUN apt-get install -y \
+RUN apt update
+RUN apt install -y \
     php7.1-cli \
     php7.1-curl \
     php7.1-xdebug \
